@@ -9,21 +9,31 @@
   </head>
   <body>
 
-    <section class="sections">
-      <h1>Home</h1>
-      <div class="searchBar">
-        <input type="text" name="" value="">
-      </div>
-    </section>
-    <section class="sections">
-      <div class="grid">
-        <% products.map(product => { %>
-          <div>
-            <img src=<%=product.image%> class="product-img" alt="">
-            <h3> <%=product.title%> </h3>
-          </div>
-        <% })%>
-      </div>
-    </section>
+    <div class="container">
+      <section class="sections">
+        <h1>E-commerce</h1>
+        <div class="searchBar center">
+          <select class="" name="">
+             <option value=<%="dog"%>>men's clothing</option>
+             <option value=<%="cat"%>>jewelery</option>
+             <option value=<%="hamster"%>>electronics</option>
+             <option value=<%="parrot"%>>women's clothing</option>
+          </select>
+          <input type="text" name="" value="">
+          <button type="submit" name="button" value=<%="hello"%>>Search</button>
+        </div>
+      </section>
+      <section class="sections">
+        <div class="grid center">
+          <% products.map(product => { %>
+            <div>
+              <img src=<%=product.image%> class="product-img" alt="">
+              <h3><%=product.title%></h3>
+              <h4>$<%=product.price%></h4>
+            </div>
+          <% })%>
+        </div>
+      </section>
+    </div>
   </body>
 </html>

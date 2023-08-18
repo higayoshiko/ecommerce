@@ -17,9 +17,10 @@ app.use(bodyParser.urlencoded({
 
 app.use(express.static("public"));
 
+const searchRoute = require("./routes/search");
+app.use("/search", searchRoute);
 const homeRoute = require("./routes/home");
 app.use("/", homeRoute);
-
 
 app.listen(port, function() {
   console.log("server started");
