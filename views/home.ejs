@@ -12,16 +12,16 @@
     <div class="container">
       <section class="sections">
         <h1>E-commerce</h1>
-        <div class="searchBar center">
-          <select class="" name="">
-             <option value=<%="dog"%>>men's clothing</option>
-             <option value=<%="cat"%>>jewelery</option>
-             <option value=<%="hamster"%>>electronics</option>
-             <option value=<%="parrot"%>>women's clothing</option>
+        <form class="searchBar center" action="/" method="POST">
+          <select class="" name="category">
+             <option value="mens-clothing">men's clothing</option>
+             <option value="jewelery">jewelery</option>
+             <option value="electronics">electronics</option>
+             <option value="womens-clothing">women's clothing</option>
           </select>
           <input type="text" name="" value="">
-          <button type="submit" name="button" value=<%="hello"%>>Search</button>
-        </div>
+          <input type="submit" name="button" value="search">
+        </form>
       </section>
       <section class="sections">
         <div class="grid center">

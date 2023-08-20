@@ -3,12 +3,12 @@ const router = express.Router();
 const https = require('node:https');
 
 router.post("/", function(req, res) {
-  let category = Object.keys(req);
-  // try {
-  //   res.redirect("search");
-  // }catch(err){
-  //   console.log(err);
-  // }
+  let category = req.body.category;
+  try {
+    res.render('search', { category: category });
+  }catch(err){
+    console.log(err);
+  }
   console.log(category)
 });
 
