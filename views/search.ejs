@@ -2,9 +2,38 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <title>Shopee</title>
   </head>
   <body>
 
+    <div class="container">
+      <section class="sections">
+        <h1>E-commerce</h1>
+        <form class="searchBar center" action="/search" method="POST">
+          <select class="" name="category">
+             <option value="mens-clothing">men's clothing</option>
+             <option value="jewelery">jewelery</option>
+             <option value="electronics">electronics</option>
+             <option value="womens-clothing">women's clothing</option>
+          </select>
+          <input type="text" name="" value="">
+          <input type="submit" name="button" value="search">
+        </form>
+      </section>
+      <section class="sections">
+        <ul class="center">
+          <% products.map(product => { %>
+            <li>
+              <img src=<%=product.image%> class="product-img" alt="">
+              <h3><%=product.title%></h3>
+              <h4>$<%=product.price%></h4>
+            </li>
+          <% })%>
+        </ul>
+      </section>
+    </div>
   </body>
 </html>
