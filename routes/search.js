@@ -2,8 +2,16 @@ const express = require("express");
 const router = express.Router();
 const https = require('node:https');
 
-router.get("/search", function(req, res) {
-const path = "https://fakestoreapi.com/products";
+// router.use((req, res, next) => {
+//   console.log(req)
+//
+//   next();
+// });
+
+router.get("/:category", function(req, res) {
+let category = req.params.category;
+const path = `https://fakestoreapi.com/products/category/${category}`;
+console.log(req.params.category)
 
   https.get(path, (response) => {
       let result = "";
@@ -14,11 +22,13 @@ const path = "https://fakestoreapi.com/products";
       response.on("end", function() {
         const parsed = JSON.parse(result);
 
-        res.render("home", {
+        res.render("search", {
           products: parsed
       });
     });
   });
+
+  // return res.render("search", { category: category })
 });
 
 

@@ -39,3 +39,9 @@ html {
 .product-img {
   width: 17rem;
 }
+
+
+/* search page */
+.search-list {
+  list-style: none;
+}
