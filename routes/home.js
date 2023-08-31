@@ -4,12 +4,12 @@ const https = require('node:https');
 
 router.post("/", function(req, res) {
   let category = req.body.category;
+  let searchInput = req.body.search_input;
   try {
     res.redirect(`/search/${category}`);
   }catch(err){
     console.log(err);
   }
-  // console.log(category)
 });
 
 router.get("/", function(req, res) {

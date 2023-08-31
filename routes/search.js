@@ -2,16 +2,23 @@ const express = require("express");
 const router = express.Router();
 const https = require('node:https');
 
-// router.use((req, res, next) => {
-//   console.log(req)
-//
-//   next();
-// });
+router.post("/", function(req, res) {
+  let category = req.body.category;
+  try {
+    res.redirect(`/search/${category}`);
+  }catch(err){
+    console.log(err);
+  }
+  // console.log(category)
+});
 
 router.get("/:category", function(req, res) {
-let category = req.params.category;
-const path = `https://fakestoreapi.com/products/category/${category}`;
-console.log(req.params.category)
+  let category = req.params.category;
+  let path = `https://fakestoreapi.com/products/category/${category}`;
+
+  if(category === "all") {path = "https://fakestoreapi.com/products"}
+
+  console.log(path);
 
   https.get(path, (response) => {
       let result = "";
@@ -23,12 +30,11 @@ console.log(req.params.category)
         const parsed = JSON.parse(result);
 
         res.render("search", {
-          products: parsed
+          products: parsed,
+          category: category
       });
     });
   });
-
-  // return res.render("search", { category: category })
 });
 
 
