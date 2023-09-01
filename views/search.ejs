@@ -12,7 +12,7 @@
     <div class="container">
       <section class="sections">
         <a href="/">E-commerce</a>
-        <form class="searchBar center" action="/search" method="POST">
+        <form class="searchBar center" action="/" method="POST">
           <select class="" name="category">
              <option value="all" <%=category === 'all' ? 'selected' : '' %>>all</option>
              <option value="men's clothing" <%=category === "men's clothing" ? 'selected' : '' %>>men's clothing</option>
@@ -20,17 +20,18 @@
              <option value="electronics" <%=category === "electronics" ? 'selected' : '' %>>electronics</option>
              <option value="women's clothing" <%=category === "women's clothing" ? 'selected' : '' %>>women's clothing</option>
           </select>
-          <input type="text" name="" value="">
+          <input type="text" name="search_input" value="">
           <input type="submit" name="button" value="search">
         </form>
       </section>
       <section class="sections">
-        <ul class="center search-list">
+        <ul class="center product-list">
           <% products.map(product => { %>
-            <li>
+            <li class="product-lists">
               <img src="<%= product.image %>" class="product-img" alt="">
               <h3><%=product.title%></h3>
               <h4>$<%=product.price%></h4>
+              <button class="product-btn" type="button" name="button">Add to cart</button>
             </li>
           <% })%>
         </ul>

@@ -5,11 +5,15 @@ const https = require('node:https');
 router.post("/", function(req, res) {
   let category = req.body.category;
   let searchInput = req.body.search_input;
+  console.log(searchInput, category)
   try {
-    res.redirect(`/search/${category}`);
-  }catch(err){
-    console.log(err);
-  }
+      if (searchInput === "" || searchInput === undefined) {
+        res.redirect(`/search/${category}`);}
+      else {
+        res.redirect(`/search/${category}/filter/${searchInput}`);}
+    }catch(err){
+      console.log(err);
+    }
 });
 
 router.get("/", function(req, res) {

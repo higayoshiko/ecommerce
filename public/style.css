@@ -40,8 +40,15 @@ html {
   width: 17rem;
 }
 
-
 /* search page */
-.search-list {
+.product-list {
   list-style: none;
+}
+
+.product-lists {
+  margin-bottom: 4.8rem;
+}
+
+.product-btn {
+  padding: 1rem;
 }
