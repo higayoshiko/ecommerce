@@ -1,17 +1,8 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-
-    <link rel="stylesheet" href="/style.css">
-
-    <title>E-commerce</title>
-  </head>
-  <body>
+<%- include("partials/header"); -%>
+<%- include("partials/navbar"); -%>
 
     <div class="container">
       <section class="sections">
-        <a href="/">E-commerce</a>
         <form class="searchBar center" action="/" method="POST">
           <select class="" name="category">
              <option value="all" <%=category === 'all' ? 'selected' : '' %>>all</option>
@@ -20,7 +11,7 @@
              <option value="electronics" <%=category === "electronics" ? 'selected' : '' %>>electronics</option>
              <option value="women's clothing" <%=category === "women's clothing" ? 'selected' : '' %>>women's clothing</option>
           </select>
-          <input type="text" name="search_input" value="">
+          <input type="text" name="search_input" value="<%= searchInput %>">
           <input type="submit" name="button" value="search">
         </form>
       </section>
@@ -37,5 +28,5 @@
         </ul>
       </section>
     </div>
-  </body>
-</html>
+
+<%- include("partials/footer"); -%>

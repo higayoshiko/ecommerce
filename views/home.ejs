@@ -1,17 +1,9 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
+<%- include("partials/header"); -%>
+<%- include("partials/navbar"); -%>
 
-    <link rel="stylesheet" href="style.css">
-
-    <title>E-commerce</title>
-  </head>
-  <body>
 
     <div class="container">
       <section class="sections">
-        <a href="/">E-commerce</a>
         <form class="searchBar center" action="/" method="POST">
           <select class="" name="category">
              <option value="all" selected>all</option>
@@ -37,5 +29,6 @@
         </div>
       </section>
     </div>
-  </body>
-</html>
+
+
+<%- include("partials/footer"); -%>

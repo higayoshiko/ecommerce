@@ -5,7 +5,7 @@ const https = require('node:https');
 router.post("/", function(req, res) {
   let category = req.body.category;
   let searchInput = req.body.search_input;
-  console.log(searchInput, category)
+
   try {
       if (searchInput === "" || searchInput === undefined) {
         res.redirect(`/search/${category}`);}
@@ -25,8 +25,8 @@ const path = "https://fakestoreapi.com/products";
       result += data;
           });
 
-      response.on("end", function() {
-        const parsed = JSON.parse(result);
+      response.on("end", async function() {
+        const parsed = await JSON.parse(result);
 
         res.render("home", {
           products: parsed

@@ -5,7 +5,6 @@ const ejs = require("ejs");
 const bodyParser = require("body-parser");
 const port = 3000;
 
-
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
@@ -17,6 +16,8 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "public"));
 
+const cartRoute = require("./routes/cart");
+app.use("/cart", cartRoute);
 const searchRoute = require("./routes/search");
 app.use("/search", searchRoute);
 const homeRoute = require("./routes/home");

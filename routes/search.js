@@ -2,20 +2,6 @@ const express = require("express");
 const router = express.Router();
 const https = require('node:https');
 
-
-// router.post("/", function(req, res) {
-//   let category = req.body.category;
-//   let searchInput = req.body.search_input;
-//   try {
-//     if (searchInput === "" || searchInput === undefined) {
-//       res.redirect(`/search/${category}`);}
-//     else {
-//       res.redirect(`/search/${category}/filter/${searchInput}`);}
-//     }catch(err){
-//       console.log(err);
-//   }
-// });
-
 router.get("/:category", function(req, res) {
   let category = req.params.category;
   let path = `https://fakestoreapi.com/products/category/${category}`;
@@ -28,8 +14,8 @@ router.get("/:category", function(req, res) {
       result += data;
           });
 
-      response.on("end", function() {
-        const parsed = JSON.parse(result);
+      response.on("end", async function() {
+        const parsed = await JSON.parse(result);
 
         res.render("search", {
           products: parsed,
@@ -64,7 +50,8 @@ router.get("/:category/filter/:searchBar", function(req, res) {
 
         res.render("search", {
           products: parsed,
-          category: category
+          category: category,
+          searchInput: searchInput
       });
     });
   });
