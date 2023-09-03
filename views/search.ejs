@@ -3,7 +3,7 @@
 
     <div class="container">
       <section class="sections">
-        <form class="searchBar center" action="/" method="POST">
+        <form class="searchBar center" action="/search" method="POST">
           <select class="" name="category">
              <option value="all" <%=category === 'all' ? 'selected' : '' %>>all</option>
              <option value="men's clothing" <%=category === "men's clothing" ? 'selected' : '' %>>men's clothing</option>
@@ -16,16 +16,18 @@
         </form>
       </section>
       <section class="sections">
-        <ul class="center product-list">
-          <% products.map(product => { %>
-            <li class="product-lists">
-              <img src="<%= product.image %>" class="product-img" alt="">
-              <h3><%=product.title%></h3>
-              <h4>$<%=product.price%></h4>
-              <button class="product-btn" type="button" name="button">Add to cart</button>
-            </li>
-          <% })%>
-        </ul>
+        <form class="" action="/search" method="post">
+          <ul class="center product-list">
+            <% products.map(product => { %>
+              <li class="product-lists">
+                <img src="<%= product.image %>" class="product-img" name="itemImage" alt="">
+                <h3 name="itemName"><%=product.title%></h3>
+                <h4 name="itemPrice">$<%=product.price%></h4>
+                <input class="product-btn" type="submit" name="button" value="Add to cart">
+              </li>
+            <% })%>
+          </ul>
+        </form>
       </section>
     </div>
 

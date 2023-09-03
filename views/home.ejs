@@ -19,12 +19,12 @@
       <section class="sections">
         <div class="grid center">
           <% products.map(product => { %>
-            <div>
-              <img src="<%= product.image %>" class="product-img" alt="">
-              <h3><%=product.title%></h3>
-              <h4>$<%=product.price%></h4>
-              <button type="button" name="button">Add to cart</button>
-            </div>
+            <form action="/" method="POST">
+              <img src="<%= product.image %>" class="product-img" name="itemImage" alt="">
+              <h3 name="itemName"><%=product.title%></h3>
+              <h4 name="itemPrice">$<%=product.price%></h4>
+              <button class="product-btn" type="submit" name="button">Add to cart</button>
+            </form>
           <% })%>
         </div>
       </section>
