@@ -1,0 +1,3 @@
+// function stopReloading() {
+//   event.preventDefault();
+// }

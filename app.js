@@ -16,8 +16,10 @@ app.use(bodyParser.urlencoded({
 app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "public"));
 
-const cartRoute = require("./routes/cart");
-app.use("/cart", cartRoute);
+const addToCartRoute = require("./routes/addToCart");
+app.use("/addToCart", addToCartRoute);
+const checkOutRoute = require("./routes/checkOut");
+app.use("/checkOut", checkOutRoute);
 const searchRoute = require("./routes/search");
 app.use("/search", searchRoute);
 const homeRoute = require("./routes/home");
