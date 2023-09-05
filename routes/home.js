@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 const https = require('node:https');
-const callApi = require('./callApi');
 
 router.post("/", function(req, res) {
   let category = req.body.category;
@@ -18,24 +17,22 @@ router.post("/", function(req, res) {
 });
 
 router.get("/", function(req, res) {
-// const path = "https://fakestoreapi.com/products";
+const path = "https://fakestoreapi.com/products";
 
-  // https.get(path, (response) => {
-  //     let result = "";
-  //     response.on("data", function(data) {
-  //     result += data;
-  //         });
-  //
-  //     response.on("end", async function() {
-  //       const parsed = await JSON.parse(result);
-  //
-  //       res.render("home", {
-  //         products: parsed
-  //     });
-  //   });
-  // });
+  https.get(path, (response) => {
+      let result = "";
+      response.on("data", function(data) {
+      result += data;
+          });
 
-  callApi.getItems();
+      response.on("end", async function() {
+        const parsed = await JSON.parse(result);
+
+        res.render("home", {
+          products: parsed
+      });
+    });
+  });
 });
 
 module.exports = router;

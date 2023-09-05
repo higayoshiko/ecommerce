@@ -3,6 +3,7 @@ const router = express.Router();
 const https = require('node:https');
 const cartItems = require("../models/CartItems");
 
+
 router.post("/", function(req, res) {
 
 
@@ -15,9 +16,9 @@ router.post("/", function(req, res) {
 // cartItem.save(err => {
 //   if(err) {console.log(err)}
 //   });
-console.log(req.body.itemName)
+console.log(req.body)
 
-res.render("home");
+res.redirect("/");
 });
 
 
