@@ -1,5 +1,4 @@
 <%- include("partials/header"); -%>
-<%- include("partials/navbar"); -%>
 
     <div class="container">
       <section class="sections">
@@ -11,7 +10,7 @@
              <option value="electronics" <%=category === "electronics" ? 'selected' : '' %>>electronics</option>
              <option value="women's clothing" <%=category === "women's clothing" ? 'selected' : '' %>>women's clothing</option>
           </select>
-          <input type="text" name="search_input" value="<%= searchInput %>">
+          <input type="text" name="search_input" value"">
           <input type="submit" name="button" value="search">
         </form>
       </section>
@@ -20,9 +19,9 @@
           <ul class="center product-list">
             <% products.map(product => { %>
               <li class="product-lists">
-                <img src="<%= product.image %>" class="product-img" name="itemImage" alt="">
-                <h3 name="itemName"><%=product.title%></h3>
-                <h4 name="itemPrice">$<%=product.price%></h4>
+                <input type="image" src="<%= product.image %>" class="product-img" name="itemImage" alt=""/>
+                <input class="product-input" type="text" name="itemName" value="<%=product.title%>" readonly/>
+                <input class="product-input" type="text" name="itemPrice" value="$ <%=product.price%>" readonly/>
                 <input class="product-btn" type="submit" name="button" value="Add to cart">
               </li>
             <% })%>

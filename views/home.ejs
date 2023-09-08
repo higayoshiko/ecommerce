@@ -1,5 +1,5 @@
 <%- include("partials/header"); -%>
-<%- include("partials/navbar"); -%>
+
 
 
     <div class="container">
@@ -12,7 +12,7 @@
              <option value="electronics">electronics</option>
              <option value="women's clothing">women's clothing</option>
           </select>
-          <input type="text" name="search_input" value="">
+          <input type="text" name="search_input">
           <input type="submit" name="button" value="search">
         </form>
       </section>
@@ -20,11 +20,11 @@
         <div class="grid center">
           <% products.map(product => { %>
             <form action="/addToCart" method="POST">
-              <img src="<%= product.image %>" class="product-img" name="itemImage" alt="">
-              <h3 name="itemName"><%=product.title%></h3>
-              <h4 name="itemPrice">$<%=product.price%></h4>
+              <input type="image" src="<%= product.image %>" class="product-img" name="itemImage" alt="" />
+              <input class="product-input" type="text" name="itemName" value="<%=product.title%>" readonly/>
+              <input class="product-input" type="text" name="itemPrice" value="$ <%=product.price%>" readonly/>
               <input class="product-btn" type="submit" name="button"
-              value="Add to cart">
+              value="Add to cart" />
             </form>
           <% })%>
         </div>

@@ -65,3 +65,10 @@ nav {
 .product-btn {
   padding: 1rem;
 }
+
+.product-input {
+  font-weight: bolder;
+  border: none;
+  color: #000;
+  display: block;
+}

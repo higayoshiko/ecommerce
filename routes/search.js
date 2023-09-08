@@ -4,16 +4,15 @@ const https = require('node:https');
 const cartItems = require("../models/CartItems");
 
 
-router.post("/", function(req, res) {
-
-const cartItem = new CartItems({
-  title: req.body.itemName,
-  price: req.body.itemPrice,
-  image: req.body.itemImage
-  });
-
-  console.log(req)
-});
+// router.post("/", function(req, res) {
+//
+// const cartItem = new CartItems({
+//   title: req.body.itemName,
+//   price: req.body.itemPrice,
+//   image: req.body.itemImage
+//   });
+//
+// });
 
 router.get("/:category", function(req, res) {
   let category = req.params.category;
@@ -39,12 +38,13 @@ router.get("/:category", function(req, res) {
 });
 
 
-router.get("/:category/filter/:searchBar", function(req, res) {
+router.get("/:category/filter/:searchInput", function(req, res) {
   let category = req.params.category;
-  let searchInput = req.params.searchBar;
+  let searchInput = req.params.searchInput;
   let path = `https://fakestoreapi.com/products/category/${category}`;
 
-  if(category === "all") {path = "https://fakestoreapi.com/products"}
+  if(category === "all") {path = "https://fakestoreapi.com/products"};
+
 
   https.get(path, (response) => {
       let result = "";
